@@ -133,7 +133,7 @@ with st.sidebar.form(key="student_form"):
     family_income = st.selectbox("Family Income Level", options=['Low', 'Medium', 'High'], index=1)
     parent_education = st.selectbox("Parent Education Level", options=['High School', 'Bachelor', 'Master', 'Doctorate'], index=1)
 
-    submit_button = st.form_submit_button(label="🔮 Predict Student Performance", use_container_width=True)
+    submit_button = st.form_submit_button(label="🔮 Predict Student Performance")
 
 # -----------------------------------------------------------------------------
 # 5. PREPROCESSING & PREDICTION LOGIC
@@ -250,28 +250,28 @@ with tab2:
         st.write("**Model Accuracy Comparison**")
         acc_path = os.path.join(model_dir, 'accuracy_comparison.png')
         if os.path.exists(acc_path):
-            st.image(acc_path, use_container_width=True)
+            st.image(acc_path, width="stretch")
         
         st.write("**Confusion Matrix**")
         cm_path = os.path.join(model_dir, 'confusion_matrix.png')
         if os.path.exists(cm_path):
-            st.image(cm_path, use_container_width=True)
+            st.image(cm_path, width="stretch")
 
     with col_b:
         st.write("**Feature Importance Ranking**")
         fi_path = os.path.join(model_dir, 'feature_importance.png')
         if os.path.exists(fi_path):
-            st.image(fi_path, use_container_width=True)
+            st.image(fi_path, width="stretch")
 
         st.write("**ROC Curve**")
         roc_path = os.path.join(model_dir, 'roc_curve.png')
         if os.path.exists(roc_path):
-            st.image(roc_path, use_container_width=True)
+            st.image(roc_path, width="stretch")
 
     st.write("**Feature Correlation Heatmap**")
     corr_path = os.path.join(model_dir, 'correlation_heatmap.png')
     if os.path.exists(corr_path):
-        st.image(corr_path, use_container_width=True)
+        st.image(corr_path, width="stretch")
 
 
 with tab3:
