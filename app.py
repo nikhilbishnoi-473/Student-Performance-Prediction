@@ -3,7 +3,14 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import joblib
-from PIL import Image
+from streamlit.runtime.scriptrunner import get_script_run_ctx
+
+# Auto-launch Streamlit server if executed directly via `python app.py` (e.g. on Render)
+if __name__ == "__main__" and get_script_run_ctx() is None:
+    from streamlit.web import cli as stcli
+    port = os.environ.get("PORT", "8501")
+    sys.argv = ["streamlit", "run", sys.argv[0], "--server.port", str(port), "--server.address", "0.0.0.0"]
+    sys.exit(stcli.main())
 
 # -----------------------------------------------------------------------------
 # 1. PAGE CONFIGURATION & STYLING
